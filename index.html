@@ -1,164 +1,146 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Eywallah AI - Chatbot Sayfası</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #00ffff;
-            --accent: #00ff8c;
-            --background: #0a0a0a;
-            --card: rgba(255, 255, 255, 0.05);
-            --text: #e0e0e0;
-            --muted: #b0b0b0;
-            --glass-border: rgba(255, 255, 255, 0.1);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eywallah AI - Chatbot Sayfası</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00ffff;
+      --accent: #00ff8c;
+      --background: #0a0a0a;
+      --card: rgba(255, 255, 255, 0.05);
+      --text: #e0e0e0;
+      --muted: #b0b0b0;
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--background);
-            color: var(--text);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            text-align: center;
-            scroll-behavior: smooth;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-        h1 {
-            font-size: 3.5em;
-            font-weight: 600;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
-        }
+    h1 {
+      font-size: 3.5em;
+      font-weight: 600;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
 
-        p {
-            font-size: 1.2em;
-            font-weight: 300;
-            margin-bottom: 30px;
-            color: var(--muted);
-        }
+    p {
+      font-size: 1.2em;
+      font-weight: 300;
+      margin-bottom: 30px;
+      color: var(--muted);
+    }
 
-        .container {
-            width: 90%;
-            max-width: 850px;
-            padding: 40px;
-            background-color: var(--card);
-            border-radius: 24px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.08);
-            transition: transform 0.3s ease;
-        }
+    .features-container {
+      width: 90%;
+      max-width: 850px;
+      padding: 30px;
+      background-color: var(--card);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-        .container:hover {
-            transform: scale(1.01);
-        }
+    .features-container h2 {
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .features-container {
-            width: 90%;
-            max-width: 850px;
-            margin-bottom: 30px;
-            padding: 30px;
-            background-color: var(--card);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
-            animation: fadeIn 1.2s ease forwards;
-        }
+    .features-container ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1.1em;
+      color: var(--muted);
+    }
 
-        .features-container h2 {
-            font-size: 2em;
-            font-weight: 600;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .features-container li {
+      margin-bottom: 12px;
+    }
 
-        .features-container ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 1.1em;
-            color: var(--muted);
-        }
+    .chatbot-container {
+      width: 90%;
+      max-width: 850px;
+      height: 600px;
+      border-radius: 20px;
+      overflow: hidden;
+      background-color: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 40px;
+    }
 
-        .features-container li {
-            margin-bottom: 12px;
-        }
+    footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #777;
+    }
 
-        .chatbot-container {
-            width: 100%;
-            height: 600px;
-            border-radius: 15px;
-            overflow: hidden;
-            background-color: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        footer {
-            margin-top: 40px;
-            font-size: 0.8em;
-            color: #777;
-            text-align: center;
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(30px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-    </style>
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
 <body>
 
-    <div class="features-container">
-        <h2>Chatbot'un Özellikleri</h2>
-        <ul>
-            <li><strong>Özelleştirilebilir Akış:</strong> Botun konuşma senaryosunu tamamen siz belirleyebilirsiniz.</li>
-            <li><strong>Kullanıcı Bilgisi Toplama:</strong> Müşterilerin ad, e-posta gibi bilgilerini toplayabilir.</li>
-            <li><strong>Zengin İçerik Desteği:</strong> Butonlar, görseller ve videolarla etkileşimi artırır.</li>
-            <li><strong>Kolay Entegrasyon:</strong> Google Sheets gibi dış servislere bağlanabilir.</li>
-            <li><strong>Hazır Şablonlarla Hızlı Başlangıç:</strong> Önceden hazırlanmış bot taslakları ile hız kazanın.</li>
-        </ul>
-    </div>
+  <h1>Eywallah AI</h1>
+  <p>Yapay zekâyla sohbet deneyimini kişiselleştir.</p>
 
-    <div class="container">
-        <h1>Eywallah AI</h1>
-        <p>Merhaba! Sohbet etmek için hazırım. Nasıl yardımcı olabilirim?</p>
+  <div class="features-container">
+    <h2>Öne Çıkan Özellikler</h2>
+    <ul>
+      <li><strong>Özelleştirilebilir Akış:</strong> Konuşma senaryosunu kendin belirle.</li>
+      <li><strong>Kullanıcı Bilgisi Toplama:</strong> Ad, e-posta gibi bilgileri kaydedebilir.</li>
+      <li><strong>Zengin İçerik:</strong> Görseller, videolar, butonlar ile destekli.</li>
+      <li><strong>Kolay Entegrasyon:</strong> Google Sheets gibi sistemlere bağlanabilir.</li>
+      <li><strong>Hazır Şablonlar:</strong> 5 dakikada yayına alabileceğin örnek botlar.</li>
+    </ul>
+  </div>
 
-        <div class="chatbot-container">
-            <script>
-                (function() {
-                    var script = document.createElement('script');
-                    script.dataset.bot = "688e46688ae4eb47b090051f";
-                    script.dataset.zindex = "99999";
-                    script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
-                    script.async = true;
-                    script.defer = true;
-                    document.getElementsByTagName('head')[0].appendChild(script);
-                })()
-            </script>
-        </div>
+  <div class="chatbot-container">
+    <script>
+      (function() {
+        var script = document.createElement('script');
+        script.dataset.bot = "688e46688ae4eb47b090051f"; // senin bot ID'in
+        script.dataset.zindex = "99999";
+        script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
+        script.async = true;
+        script.defer = true;
+        document.getElementsByTagName('head')[0].appendChild(script);
+      })()
+    </script>
+  </div>
 
-        <footer>
-            &copy; 2025 <strong>Eywallah AI</strong>. Tüm hakları saklıdır.
-        </footer>
-    </div>
+  <footer>
+    &copy; 2025 <strong>Eywallah AI</strong>. Tüm hakları saklıdır.
+  </footer>
 
 </body>
 </html>
