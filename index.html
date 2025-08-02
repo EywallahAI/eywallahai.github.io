@@ -1,11 +1,93 @@
-<script>
-    (function() {
-        var script = document.createElement('script');
-        script.dataset.bot = "688e46688ae4eb47b090051f";
-        script.dataset.zindex = "99999";
-        script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
-        script.async = true;
-        script.defer = true;
-        document.getElementsByTagName('head')[0].appendChild(script);
-    })()
-</script>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eywallah AI - Chatbot Sayfası</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 600;
+            background: -webkit-linear-gradient(45deg, #00ffff, #00ff8c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .chatbot-container {
+            width: 100%;
+            height: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Eywallah AI</h1>
+        <p>Merhaba! Sohbet etmek için hazırım. Nasıl yardımcı olabilirim?</p>
+
+        <div class="chatbot-container">
+            <script>
+                (function() {
+                    var script = document.createElement('script');
+                    script.dataset.bot = "688e46688ae4eb47b090051f";
+                    script.dataset.zindex = "99999";
+                    script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
+                    script.async = true;
+                    script.defer = true;
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                })()
+            </script>
+        </div>
+
+        <footer>
+            &copy; 2025 Eywallah AI. Tüm hakları saklıdır.
+        </footer>
+    </div>
+
+</body>
+</html>
