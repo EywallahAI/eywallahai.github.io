@@ -3,185 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eywallah AI - Chatbot Sayfası</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <title>Eywallah AI Chatbot</title>
   <style>
-    :root {
-      --primary: #00ffff;
-      --accent: #00ff8c;
-      --background: #0a0a0a;
-      --card: rgba(255, 255, 255, 0.05);
-      --text: #e0e0e0;
-      --muted: #b0b0b0;
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
+      background: #0a0a0a;
+      color: #0ff;
       font-family: 'Poppins', sans-serif;
-      background: var(--background);
-      color: var(--text);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
-      text-align: center;
-      min-height: 100vh;
+      padding: 30px 10px;
+      height: 100vh;
+      margin: 0;
     }
     h1 {
-      font-size: 3.5em;
       font-weight: 600;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 3em;
       margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.2em;
-      font-weight: 300;
-      margin-bottom: 30px;
-      color: var(--muted);
-    }
-    .features-container {
-      width: 90%;
-      max-width: 850px;
-      padding: 30px;
-      background-color: var(--card);
-      border-radius: 20px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
-      margin-bottom: 40px;
-      animation: fadeIn 1s ease-in-out;
-      text-align: left;
-    }
-    .features-container h2 {
-      font-size: 2em;
-      font-weight: 600;
-      margin-bottom: 15px;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
+      background: linear-gradient(45deg, #00ffff, #00ff8c);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }
-    .features-container ul {
-      list-style: none;
-      padding-left: 20px;
-      color: var(--muted);
-      font-size: 1.1em;
-    }
-    .features-container li {
-      margin-bottom: 12px;
-      line-height: 1.5;
-    }
-    .chatbot-container {
-      position: relative;
-      width: 90%;
-      max-width: 850px;
-      height: 600px;
-      background-color: var(--card);
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      color: #0ff;
-      font-size: 1em;
-      margin-bottom: 40px;
     }
     #chat {
-      flex: 1;
+      width: 90%;
+      max-width: 700px;
+      height: 500px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 20px;
       padding: 15px;
       overflow-y: auto;
-      background: transparent;
+      margin-bottom: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
       text-align: left;
-      user-select: text;
     }
-    #chat div {
+    .msg {
       margin-bottom: 15px;
       line-height: 1.3;
     }
-    #chat .user {
-      color: var(--accent);
+    .user {
+      color: #00ff8c;
+      font-weight: 600;
     }
-    #chat .bot {
-      color: var(--primary);
+    .bot {
+      color: #00ffff;
+      font-weight: 600;
     }
-    #input-area {
+    #inputArea {
+      width: 90%;
+      max-width: 700px;
       display: flex;
-      padding: 10px;
       gap: 10px;
-      background: rgba(0, 255, 255, 0.1);
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 0 0 20px 20px;
     }
     #userInput {
-      flex: 1;
+      flex-grow: 1;
       padding: 12px 15px;
       border-radius: 20px;
       border: none;
       outline: none;
       font-size: 1em;
-      background-color: rgba(255,255,255,0.1);
-      color: var(--text);
-      caret-color: var(--primary);
+      background: rgba(255,255,255,0.1);
+      color: #0ff;
+      caret-color: #00ffff;
     }
     #sendBtn {
-      padding: 12px 25px;
-      border-radius: 20px;
+      background: #00ffff;
       border: none;
-      background: var(--primary);
+      border-radius: 20px;
+      padding: 12px 25px;
+      font-weight: 700;
       color: #000;
-      font-weight: 600;
-      font-size: 1em;
       cursor: pointer;
       transition: background 0.3s ease;
     }
     #sendBtn:hover {
-      background: var(--accent);
-    }
-    footer {
-      margin-top: auto;
-      font-size: 0.9em;
-      color: #777;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
+      background: #00ff8c;
     }
   </style>
 </head>
 <body>
 
   <h1>Eywallah AI</h1>
-  <p>Yapay zekâyla sohbet deneyimini kişiselleştir.</p>
+  <div id="chat"></div>
 
-  <div class="features-container">
-    <h2>Öne Çıkan Özellikler</h2>
-    <ul>
-      <li><strong>Özelleştirilebilir Akış:</strong> Konuşma senaryosunu kendin belirle.</li>
-      <li><strong>Kullanıcı Bilgisi Toplama:</strong> Ad, e-posta gibi bilgileri kaydedebilir.</li>
-      <li><strong>Zengin İçerik:</strong> Görseller, videolar, butonlar ile destekli.</li>
-      <li><strong>Kolay Entegrasyon:</strong> Google Sheets gibi sistemlere bağlanabilir.</li>
-      <li><strong>Hazır Şablonlar:</strong> 5 dakikada yayına alabileceğin örnek botlar.</li>
-    </ul>
+  <div id="inputArea">
+    <input type="text" id="userInput" placeholder="Mesajınızı yazın..." autocomplete="off" />
+    <button id="sendBtn">Gönder</button>
   </div>
-
-  <div class="chatbot-container" id="eywallah-chat">
-    <div id="chat"></div>
-    <div id="input-area">
-      <input type="text" id="userInput" placeholder="Mesajını yaz..." autocomplete="off" />
-      <button id="sendBtn">Gönder</button>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 <strong>Eywallah AI</strong>. Tüm hakları saklıdır.
-  </footer>
 
   <script>
     const chat = document.getElementById('chat');
@@ -190,26 +97,27 @@
 
     sendBtn.addEventListener('click', sendMessage);
     input.addEventListener('keydown', e => {
-      if(e.key === 'Enter') sendMessage();
+      if (e.key === 'Enter') sendMessage();
     });
 
     function addMessage(text, sender) {
-      const msgDiv = document.createElement('div');
-      msgDiv.textContent = text;
-      msgDiv.classList.add(sender);
-      chat.appendChild(msgDiv);
+      const div = document.createElement('div');
+      div.classList.add('msg');
+      div.classList.add(sender);
+      div.textContent = (sender === 'user' ? 'Sen: ' : 'Eywallah AI: ') + text;
+      chat.appendChild(div);
       chat.scrollTop = chat.scrollHeight;
     }
 
     function sendMessage() {
       const message = input.value.trim();
-      if(!message) return;
-
-      addMessage("Sen: " + message, 'user');
+      if (!message) return;
+      addMessage(message, 'user');
       input.value = '';
-      // Dummy cevap (burayı API ile değiştirebilirsin)
+
+      // Dummy cevap veriyoruz, API entegrasyonu yok burada.
       setTimeout(() => {
-        addMessage("Eywallah AI: Mesajını aldım: \"" + message + "\"", 'bot');
+        addMessage(`Mesajını aldım: "${message}"`, 'bot');
       }, 700);
     }
   </script>
