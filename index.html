@@ -124,19 +124,19 @@
     </ul>
   </div>
 
-  <div class="chatbot-container">
-    <script>
-      (function() {
-        var script = document.createElement('script');
-        script.dataset.bot = "688e46688ae4eb47b090051f"; // senin bot ID'in
-        script.dataset.zindex = "99999";
-        script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
-        script.async = true;
-        script.defer = true;
-        document.getElementsByTagName('head')[0].appendChild(script);
-      })()
-    </script>
-  </div>
+  <div class="chatbot-container" id="eywallah-chat"></div>
+
+  <script>
+    (function() {
+      var script = document.createElement('script');
+      script.dataset.bot = "688e46688ae4eb47b090051f";
+      script.dataset.zindex = "99999";
+      script.src = "https://panel.chatfuel.com/widgets/chat-widget/chat-widget.js";
+      script.async = true;
+      script.defer = true;
+      document.getElementById('eywallah-chat').appendChild(script);
+    })();
+  </script>
 
   <footer>
     &copy; 2025 <strong>Eywallah AI</strong>. Tüm hakları saklıdır.
