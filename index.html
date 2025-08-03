@@ -1,119 +1,211 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Eywallah AI</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #00ffff;
-      --accent: #00ff8c;
-      --background: #0a0a0a;
-      --card: rgba(255, 255, 255, 0.05);
-      --text: #e0e0e0;
-      --muted: #b0b0b0;
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Eywallah AI | Orion 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --primary: #00ffff;
+    --accent: #00ff8c;
+    --background: #0a0a0a;
+    --card: rgba(255, 255, 255, 0.05);
+    --text: #e0e0e0;
+    --muted: #b0b0b0;
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --shadow-glow: rgba(0, 255, 255, 0.4);
+  }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--background);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      text-align: center;
-    }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 100vh;
+  }
 
-    h1 {
-      font-size: 3.5em;
-      font-weight: 600;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
-    }
+  h1 {
+    font-size: 3.8em;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    text-shadow: 0 0 8px var(--shadow-glow);
+    letter-spacing: 1.2px;
+  }
 
-    p {
-      font-size: 1.2em;
-      font-weight: 300;
-      margin-bottom: 30px;
-      color: var(--muted);
-    }
+  h1 .subtitle {
+    font-size: 0.6em;
+    font-weight: 400;
+    display: block;
+    color: var(--muted);
+    margin-top: -8px;
+    letter-spacing: normal;
+    text-shadow: none;
+    -webkit-text-fill-color: var(--muted);
+    background: none;
+  }
 
-    .features-container {
-      width: 90%;
-      max-width: 850px;
-      padding: 30px;
-      background-color: var(--card);
-      border-radius: 20px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
-      margin-bottom: 40px;
-      animation: fadeIn 1s ease-in-out;
-    }
+  p {
+    font-size: 1.3em;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: var(--muted);
+    max-width: 650px;
+    line-height: 1.5;
+    user-select: none;
+  }
 
-    .features-container h2 {
-      font-size: 2em;
-      font-weight: 600;
-      margin-bottom: 15px;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+  .features-container {
+    width: 90%;
+    max-width: 850px;
+    padding: 30px;
+    background-color: var(--card);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease-in-out;
+    user-select: text;
+  }
 
-    .features-container ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 1.1em;
-      color: var(--muted);
-    }
+  .features-container h2 {
+    font-size: 2.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 6px var(--shadow-glow);
+  }
 
-    .features-container li {
-      margin-bottom: 12px;
-    }
+  .features-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.15em;
+    color: var(--muted);
+    line-height: 1.5;
+  }
 
-    .chatbot-container {
-      width: 90%;
-      max-width: 850px;
-      height: 700px;
-      border-radius: 20px;
-      overflow: hidden;
-      background-color: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      margin-bottom: 40px;
-    }
+  .features-container li {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-    footer {
-      margin-top: 20px;
-      font-size: 0.9em;
-      color: #777;
-    }
+  .features-container li strong {
+    color: var(--primary);
+    min-width: 120px;
+    text-align: left;
+    display: inline-block;
+  }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-  </style>
+  .chatbot-container {
+    width: 90%;
+    max-width: 850px;
+    height: 700px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 30px var(--shadow-glow);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 40px;
+    animation: fadeIn 1.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    color: var(--text);
+    font-size: 1.1em;
+    text-align: left;
+  }
+
+  .msg {
+    margin-bottom: 15px;
+    max-width: 80%;
+    padding: 12px 18px;
+    border-radius: 20px;
+    line-height: 1.4;
+  }
+
+  .msg.user {
+    background: var(--primary);
+    color: #000;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+  }
+
+  .msg.bot {
+    background: var(--accent);
+    color: #000;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+  }
+
+  #input-form {
+    display: flex;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  #input {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 0 0 0 20px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+  }
+
+  #send {
+    padding: 0 25px;
+    background: var(--primary);
+    border: none;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0 0 20px 0;
+    transition: background 0.3s ease;
+  }
+
+  #send:hover {
+    background: var(--accent);
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+</style>
 </head>
 <body>
 
-  <h1>Eywallah AI</h1>
-  <p>Ben Eywallah AI. Yazım bozuk da olsa moral bozuk da olsa buradayım. Eyvallah!</p>
+  <h1>Eywallah AI <span class="subtitle">| Orion 1</span></h1>
+  <p>Ben Eywallah AI. Yazım hataların olsa da moral bozukluğun olsa da ben her zaman buradayım. Eyvallah!</p>
 
-  <div class="features-container">
+  <div class="features-container" role="region" aria-label="Eywallah AI Özellikleri">
     <h2>Hızlı ve Kaliteli Motoruyla Eywallah AI.</h2>
     <ul>
       <li><strong>🚀 Eywallah AI:</strong> Ultra hızlı ve düşük gecikmeli sohbet deneyimi sunar.</li>
@@ -125,18 +217,58 @@
     </ul>
   </div>
 
-  <div class="chatbot-container">
-    <iframe
-      src="https://www.chatbase.co/chatbot-iframe/CSFERDme1uf2R9Rsj1kWA"
-      width="100%"
-      style="height: 100%; min-height: 700px"
-      frameborder="0"
-    ></iframe>
+  <div class="chatbot-container" role="main" aria-label="Eywallah AI Sohbet Robotu">
+    <div id="messages" aria-live="polite" aria-relevant="additions"></div>
+    <form id="input-form" aria-label="Mesaj gönderme formu">
+      <input id="input" type="text" placeholder="Sorunu yaz..." autocomplete="off" aria-label="Mesaj girişi"/>
+      <button id="send" type="submit" aria-label="Gönder">Gönder</button>
+    </form>
   </div>
 
   <footer>
-    &copy; 2025 <strong>Eywallah AI</strong> | Kişisel Sohbet Botu.
+    &copy; 2025 <strong>Eywallah AI | Orion 1</strong> | Kişisel Sohbet Botu. Tüm hakları saklıdır.
   </footer>
 
+  <script>
+    const messagesDiv = document.getElementById('messages');
+    const form = document.getElementById('input-form');
+    const input = document.getElementById('input');
+
+    function addMessage(text, sender) {
+      const div = document.createElement('div');
+      div.classList.add('msg', sender);
+      div.textContent = text;
+      messagesDiv.appendChild(div);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    async function sendMessage(message) {
+      addMessage(message, 'user');
+      addMessage('Cevap aranıyor...', 'bot');
+
+      try {
+        // Backend API isteği yapılacak buraya:
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message })
+        });
+        const data = await res.json();
+        messagesDiv.lastChild.textContent = data.reply;
+      } catch (error) {
+        messagesDiv.lastChild.textContent = 'Üzgünüm, cevap veremedim. Tekrar deneyin.';
+        console.error(error);
+      }
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const userMsg = input.value.trim();
+      if (!userMsg) return;
+      input.value = '';
+      sendMessage(userMsg);
+    });
+
+  </script>
 </body>
 </html>
