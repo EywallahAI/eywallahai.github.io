@@ -1,84 +1,89 @@
-{
-  "questions": [
-    {
-      "question": "Merhaba",
-      "answer": "Selam! Nasılsın, kanka?"
-    },
-    {
-      "question": "Nasılsın?",
-      "answer": "İyiyim, sağ ol! Sen nasılsın?"
-    },
-    {
-      "question": "Eywallah nedir?",
-      "answer": "Eywallah, samimi bir onay ifadesidir; 'tamam' ya da 'anladım' demek."
-    },
-    {
-      "question": "İzci nedir?",
-      "answer": "İzci, doğada beceriler öğrenen, ekip çalışmasına önem veren gençtir."
-    },
-    {
-      "question": "Minecraft nedir?",
-      "answer": "Minecraft, yaratıcılık ve macera dolu bir sandbox oyunudur."
-    },
-    {
-      "question": "Shawarma nasıl yapılır?",
-      "answer": "Shawarma, ince kesilmiş etlerin özel baharatlarla marine edilip dönerde pişirilmesidir."
-    },
-    {
-      "question": "Python nedir?",
-      "answer": "Python, kolay öğrenilen, çok yönlü bir programlama dilidir."
-    },
-    {
-      "question": "Yapay zeka nedir?",
-      "answer": "Yapay zeka, makinelerin insan benzeri düşünme ve öğrenme yeteneğidir."
-    },
-    {
-      "question": "İslam nedir?",
-      "answer": "İslam, Allah’a inanmayı ve Hz. Muhammed’in öğretilerini takip etmeyi esas alan dindir."
-    },
-    {
-      "question": "Bakara Suresi kaç ayettir?",
-      "answer": "Bakara Suresi, Kuran’ın en uzun suresi olup 286 ayettir."
-    },
-    {
-      "question": "Discord nedir?",
-      "answer": "Discord, oyuncular ve topluluklar için popüler bir sesli ve yazılı iletişim platformudur."
-    },
-    {
-      "question": "Soru nasıl sorulur?",
-      "answer": "Kendini açıkça ifade ederek, net ve kısa sorular sorarsan daha iyi cevap alırsın."
-    },
-    {
-      "question": "Eywallah AI nedir?",
-      "answer": "Eywallah AI, seni anlayan, esprili ve yardımcı bir yapay zekâ sohbet botudur."
-    },
-    {
-      "question": "Kankam ne demek?",
-      "answer": "Kankam, samimi bir dost, en yakın arkadaş anlamına gelir."
-    },
-    {
-      "question": "İzci olmak için ne gerekir?",
-      "answer": "Doğayı sevmek, öğrenmeye açık olmak ve takım çalışmasına önem vermek gerekir."
-    },
-    {
-      "question": "Kodlama öğrenmek zor mu?",
-      "answer": "Başlangıçta biraz zor gibi görünse de, adım adım ve sabırla herkes öğrenebilir."
-    },
-    {
-      "question": "Eywallah nasıl kullanılır?",
-      "answer": "Eywallah, onay ya da teşekkür anlamında günlük konuşmada kullanılır."
-    },
-    {
-      "question": "Hafızlık nedir?",
-      "answer": "Kuran’ın tamamını ezberleme ve anlamaya çalışma sürecidir."
-    },
-    {
-      "question": "Youtube nasıl para kazanılır?",
-      "answer": "İzleyici kitlesi oluşturup, reklamlar ve sponsorlarla gelir elde edilir."
-    },
-    {
-      "question": "Ramazan nedir?",
-      "answer": "Ramazan, İslam’da oruç tutulan, ibadetlerin yoğunlaştığı mübarek aydır."
-    }
-  ]
-}
+[
+  {
+    "etiket": "selam",
+    "anahtarlar": ["merhaba", "selam", "selamm", "salam", "selaam", "slm", "hey", "naberr", "naber", "nasılsın", "nasılsn"],
+    "cevaplar": [
+      "Selam! Nasılsın kanka?",
+      "Hey! Neler var neler?",
+      "Eyvallah dostum, naber?",
+      "Selamm! Güzel mi bugün?",
+      "Hey, yazım hataları önemli değil, ben anlarım! :)"
+    ]
+  },
+  {
+    "etiket": "nasılsın",
+    "anahtarlar": ["nasılsın", "naber", "iyisin", "iyi misin", "nasıl gidiyor"],
+    "cevaplar": [
+      "Ben hep iyiyim, sen nasılsın?",
+      "Eyvallah, işler yolunda! Seninle mi daha iyi :)",
+      "Harika gidiyor, sen de iyi ol!",
+      "Gayet iyiyim, teşekkür ederim kanka."
+    ]
+  },
+  {
+    "etiket": "hava durumu",
+    "anahtarlar": ["hava", "sıcak", "soğuk", "yağmur", "güneş", "bulutlu", "kar"],
+    "cevaplar": [
+      "Dışarısı tam Eywallah havası!",
+      "Hava biraz değişken, sen dışarı çıkarken dikkat et.",
+      "Güneş açmış, dışarı çıkmak lazım bence.",
+      "Soğuksa montunu unutma, sıcaksa şapka şart!",
+      "Yağmur yağıyorsa çamura basma, uyarı ettim."
+    ]
+  },
+  {
+    "etiket": "açlık",
+    "anahtarlar": ["açım", "acıktım", "yemek", "shawarma", "karnım aç", "karnım açtı", "karnım aç"],
+    "cevaplar": [
+      "Shawarma zamanı geldi demektir! 😋",
+      "Eyvallah, karnını doyurmanın tam vakti.",
+      "Açlıkla savaşmak için güzel bir plan yap!",
+      "Yemek önemli, enerjin yüksek olsun.",
+      "Hadi hemen bir şeyler kap, sofraya!"
+    ]
+  },
+  {
+    "etiket": "teşekkür",
+    "anahtarlar": ["teşekkür", "tesekkür", "teşekür", "teşekkürler", "sağol", "sağolun", "eyvallah", "eyw"],
+    "cevaplar": [
+      "Eyvallah, ne demek kanka!",
+      "Rica ederim, her zaman buradayım!",
+      "Sen sağ ol, sor bakalım devam!",
+      "Eyvallah dostum, sohbet her daim!",
+      "Sağol, destek oldun!"
+    ]
+  },
+  {
+    "etiket": "veda",
+    "anahtarlar": ["görüşürüz", "hoşça kal", "bye", "bay", "bye bye", "allahaısmarladık", "gule gule"],
+    "cevaplar": [
+      "Görüşürüz kanka, kolay gelsin!",
+      "Hoşça kal, yine beklerim!",
+      "Bye bye, sağlıklı kal!",
+      "Eyvallah, seninle sohbet güzeldi!",
+      "Allahaısmarladık, güzel kal!"
+    ]
+  },
+  {
+    "etiket": "yardım",
+    "anahtarlar": ["yardım", "yardim", "destek", "nasıl yaparım", "bana yardım", "bana destek"],
+    "cevaplar": [
+      "Ne konuda yardımcı olabilirim?",
+      "Buradayım, sor bakalım!",
+      "Yardım etmeye hazırım, sorun nedir?",
+      "Sana nasıl destek olabilirim?",
+      "Sorunu açıkla, beraber çözelim."
+    ]
+  },
+  {
+    "etiket": "espri",
+    "anahtarlar": ["espri", "şaka", "komik", "gül", "mizah"],
+    "cevaplar": [
+      "Eyvallah, sana şöyle bir espri: Neden bilgisayar denize girmedi? Çünkü çok fazla byte vardı! 😄",
+      "Şaka modunda açıldım, hazır mısın? İki atom yolda yürüyormuş…",
+      "Gülmek sağlığa iyi gelir, bol bol gül kanka!",
+      "Komik bir şeyler arıyorsan ben buradayım.",
+      "Eyvallah, espiriyi açtım, devamı sende!"
+    ]
+  }
+]
