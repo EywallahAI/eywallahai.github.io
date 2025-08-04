@@ -2,23 +2,37 @@
 const chatForm = document.getElementById("chat-form");
 const userInput = document.getElementById("user-input");
 const chatOutput = document.getElementById("chat-output");
+const botName = "Eywallah AI - Orion 1";
+
+// localStorage'dan sohbet geçmişini yükle
+let chatHistory = JSON.parse(localStorage.getItem('chatHistory')) || [];
 
 // Yükleme animasyonu için bir eleman oluştur
 function createTypingIndicator() {
   const indicator = document.createElement("div");
-  indicator.className = "typing-indicator";
+  indicator.className = "typing-indicator bot-message";
   indicator.innerHTML = '<span></span><span></span><span></span>';
   return indicator;
 }
 
-// Mesaj ekleme fonksiyonu
-function addMessage(sender, text) {
+// Mesajı ekrana ekle ve localStorage'a kaydet
+function addMessage(sender, text, isNew = true) {
   const messageDiv = document.createElement("div");
-  messageDiv.className = sender === "Sen" ? "message user-message" : "message bot-message";
+  messageDiv.className = `message ${sender === "Sen" ? "user-message" : "bot-message"}`;
   messageDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
   chatOutput.appendChild(messageDiv);
   chatOutput.scrollTop = chatOutput.scrollHeight; // En alta kaydır
+
+  if (isNew) {
+    chatHistory.push({ sender, text });
+    localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+  }
 }
+
+// Sayfa yüklendiğinde sohbet geçmişini göster
+window.onload = function() {
+  chatHistory.forEach(msg => addMessage(msg.sender, msg.text, false));
+};
 
 chatForm.addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -47,14 +61,14 @@ chatForm.addEventListener("submit", async function (e) {
 
     const data = await response.json();
     if (data.reply) {
-      addMessage("Eywallah AI - Orion 1", data.reply);
+      addMessage(botName, data.reply);
     } else {
-      addMessage("Eywallah AI - Orion 1", "Üzgünüm, bir hata oluştu.");
+      addMessage(botName, "Üzgünüm, bir hata oluştu. Lütfen konsolu kontrol edin.");
     }
   } catch (error) {
     // Yükleme göstergesini hata durumunda da kaldır
     chatOutput.removeChild(typingIndicator);
     console.error("API hatası:", error);
-    addMessage("Eywallah AI - Orion 1", "Bağlantı kurulamadı. Lütfen Netlify fonksiyon ve API anahtarınızı kontrol edin.");
+    addMessage(botName, "Bağlantı kurulamadı. Lütfen Netlify fonksiyon ve API anahtarınızı kontrol edin.");
   }
 });
