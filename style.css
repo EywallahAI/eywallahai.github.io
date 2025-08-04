@@ -1,179 +1,231 @@
-/* Genel font ve koyu arka plan */
+/* Genel Ayarlar ve Animasyonlu Arka Plan */
 body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #121212; /* Siyah arka plan */
-    color: #f0f0f0; /* Açık renk metin */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0d0d0d;
+  color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+/* Başlık */
 header {
-    background-color: #1e1e1e;
-    text-align: center;
-    padding: 2rem 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    border-bottom: 2px solid #333;
+  text-align: center;
+  padding: 3rem 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Dalgalı ve hareketli gradient başlık */
-.wavy-text {
-    font-size: 2.5rem;
-    margin: 0;
-    background: linear-gradient(90deg, #ff00cc, #3333ff, #ff00cc);
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: wavy 5s linear infinite;
+/* Büyük ve animasyonlu başlık */
+.main-title {
+  font-size: 5rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -2px;
 }
 
-@keyframes wavy {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+/* Renk geçişli animasyon */
+.animated-title {
+  background: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc, #ff00cc);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: color-shift 10s ease-in-out infinite;
 }
 
-header .model {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-    color: #00eaff;
+@keyframes color-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.model-name {
+  font-size: 1.5rem;
+  color: #7dd3fc;
+  margin: 0.5rem 0 1rem 0;
 }
 
 .subtitle {
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    color: #ccc;
+  font-size: 1rem;
+  color: #bbb;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
+/* Üst bölümdeki özellik kartları */
+.header-features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 180px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #00eaff;
+  font-size: 1.2rem;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* Ana İçerik ve Sohbet Kutusu */
 main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 
 .chatbox-container {
-    background: rgba(255, 255, 255, 0.1); /* Yarı şeffaf beyaz */
-    backdrop-filter: blur(15px); /* Buzlu cam efekti */
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    width: 100%;
-    max-width: 600px;
-    padding: 2rem;
-}
-
-.chatbox {
-    display: flex;
-    flex-direction: column;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 
 .chat-output {
-    flex-grow: 1;
-    min-height: 300px;
-    max-height: 450px;
-    overflow-y: auto;
-    padding: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    background-color: rgba(0, 0, 0, 0.2);
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    line-height: 1.6;
+  min-height: 400px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
-/* Mesaj stilleri */
+/* Mesaj ve Yükleme Stilleri */
 .message {
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    margin-bottom: 0.5rem;
+  padding: 10px 15px;
+  border-radius: 18px;
+  margin-bottom: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
 }
 
 .user-message {
-    background-color: #007bff;
-    color: white;
-    align-self: flex-end;
-    margin-left: auto;
-    max-width: 80%;
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
 }
 
 .bot-message {
-    background-color: #333;
-    color: white;
-    align-self: flex-start;
-    max-width: 80%;
+  background-color: #2c2c2c;
+  color: white;
+  align-self: flex-start;
 }
 
-.chat-form {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.chat-form input[type="text"] {
-    flex-grow: 1;
-    padding: 0.75rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    font-size: 1rem;
-}
-
-.chat-form input[type="text"]::placeholder {
-    color: #aaa;
-}
-
-.chat-form button {
-    padding: 0.75rem 1rem;
-    border: none;
-    background-color: #00eaff;
-    color: #121212;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.chat-form button:hover {
-    background-color: #00b8e6;
-}
-
-/* Yükleme animasyonu */
 .typing-indicator {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .typing-indicator span {
-    width: 8px;
-    height: 8px;
-    background-color: #fff;
-    border-radius: 50%;
-    margin: 0 4px;
-    opacity: 0;
-    animation: fade 1s infinite;
+  width: 8px;
+  height: 8px;
+  background-color: #aaa;
+  border-radius: 50%;
+  margin: 0 4px;
+  animation: typing 1s infinite;
 }
 
 .typing-indicator span:nth-child(1) { animation-delay: 0s; }
 .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
 .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
 
-@keyframes fade {
-    0% { opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { opacity: 0.3; }
+@keyframes typing {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
 }
 
+/* Form ve Buton Stilleri */
+.chat-form {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-form input[type="text"] {
+  flex-grow: 1;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.chat-form input[type="text"]::placeholder {
+  color: #888;
+}
+
+.chat-form button {
+  padding: 15px 20px;
+  border: none;
+  background-color: #00aaff;
+  color: #121212;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-form button:hover {
+  background-color: #0088cc;
+}
+
+/* Footer */
 footer {
-    text-align: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  font-size: 0.85rem;
+  color: #777;
+  border-top: 1px solid #333;
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 3rem;
+  }
+  .model-name {
+    font-size: 1.2rem;
+  }
+  .chatbox-container {
     padding: 1rem;
-    background-color: #1e1e1e;
-    font-size: 0.85rem;
-    color: #777;
-    border-top: 1px solid #333;
+  }
 }
