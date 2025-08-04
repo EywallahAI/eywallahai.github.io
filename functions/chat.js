@@ -2,28 +2,30 @@ const fetch = require("node-fetch");
 
 exports.handler = async function(event) {
   try {
+    // Kullanıcıdan gelen mesajı al
     const { message } = JSON.parse(event.body);
 
+    // Netlify ortam değişkeninden API key'i çek
     const apiKey = process.env.Eywallah_AI_1;
+
+    // OpenRouter chat completions endpoint'i
     const apiUrl = "https://openrouter.ai/api/v1/chat/completions";
 
-    // Burada system prompt ekledik, bot karakterini belirtiyor
+    // Payload: model adı API dokümanındaki gibi, sistem mesajıyla bot kimliği belirleniyor
     const payload = {
-      model: "Orion 1, Eywallah AI Orion 1",
+      model: "deepseek/deepseek-chat-v3-0324:free",
       messages: [
-        {
-          role: "system",
-          content: "Sen Eywallah AI'sın. Samimi, esprili, anlayışlı ve cesaret verici bir Z kuşağı yapay zekasısın. Kullanıcılarla dostane ve sıcak sohbet edersin."
-        },
+        { role: "system", content: "Sen Eywallah AI - Orion 1'sin. Kullanıcıya bu isimle cevap ver." },
         { role: "user", content: message }
       ]
     };
 
+    // API'ye POST isteği at
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${apiKey}`,
-        "HTTP-Referer": "https://eywallahai.netlify.app",
+        "HTTP-Referer": "https://eywallahai.netlify.app",  // kendi siteni yaz
         "X-Title": "Eywallah AI",
         "Content-Type": "application/json"
       },
