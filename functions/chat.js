@@ -1,5 +1,3 @@
-// functions/chat.js
-
 const fetch = require("node-fetch");
 
 exports.handler = async function(event) {
@@ -31,8 +29,20 @@ exports.handler = async function(event) {
       body: JSON.stringify(payload)
     });
 
+    // HTTP durum kodunu kontrol et
+    if (!response.ok) {
+      console.error("HTTP hata:", response.status, response.statusText);
+      return {
+        statusCode: response.status,
+        body: JSON.stringify({ reply: `HTTP hata: ${response.status} ${response.statusText}` })
+      };
+    }
+
     // JSON yanıtı al
     const data = await response.json();
+
+    // API cevabını logla
+    console.log("API cevabı:", JSON.stringify(data));
 
     // Yanıt içinden cevabı al, yoksa hata mesajı göster
     const reply = data.choices?.[0]?.message?.content || "Yanıt alınamadı.";
@@ -52,4 +62,3 @@ exports.handler = async function(event) {
     };
   }
 };
-    
