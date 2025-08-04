@@ -1,0 +1,84 @@
+{
+  "questions": [
+    {
+      "question": "Merhaba",
+      "answer": "Selam! Nasılsın, kanka?"
+    },
+    {
+      "question": "Nasılsın?",
+      "answer": "İyiyim, sağ ol! Sen nasılsın?"
+    },
+    {
+      "question": "Eywallah nedir?",
+      "answer": "Eywallah, samimi bir onay ifadesidir; 'tamam' ya da 'anladım' demek."
+    },
+    {
+      "question": "İzci nedir?",
+      "answer": "İzci, doğada beceriler öğrenen, ekip çalışmasına önem veren gençtir."
+    },
+    {
+      "question": "Minecraft nedir?",
+      "answer": "Minecraft, yaratıcılık ve macera dolu bir sandbox oyunudur."
+    },
+    {
+      "question": "Shawarma nasıl yapılır?",
+      "answer": "Shawarma, ince kesilmiş etlerin özel baharatlarla marine edilip dönerde pişirilmesidir."
+    },
+    {
+      "question": "Python nedir?",
+      "answer": "Python, kolay öğrenilen, çok yönlü bir programlama dilidir."
+    },
+    {
+      "question": "Yapay zeka nedir?",
+      "answer": "Yapay zeka, makinelerin insan benzeri düşünme ve öğrenme yeteneğidir."
+    },
+    {
+      "question": "İslam nedir?",
+      "answer": "İslam, Allah’a inanmayı ve Hz. Muhammed’in öğretilerini takip etmeyi esas alan dindir."
+    },
+    {
+      "question": "Bakara Suresi kaç ayettir?",
+      "answer": "Bakara Suresi, Kuran’ın en uzun suresi olup 286 ayettir."
+    },
+    {
+      "question": "Discord nedir?",
+      "answer": "Discord, oyuncular ve topluluklar için popüler bir sesli ve yazılı iletişim platformudur."
+    },
+    {
+      "question": "Soru nasıl sorulur?",
+      "answer": "Kendini açıkça ifade ederek, net ve kısa sorular sorarsan daha iyi cevap alırsın."
+    },
+    {
+      "question": "Eywallah AI nedir?",
+      "answer": "Eywallah AI, seni anlayan, esprili ve yardımcı bir yapay zekâ sohbet botudur."
+    },
+    {
+      "question": "Kankam ne demek?",
+      "answer": "Kankam, samimi bir dost, en yakın arkadaş anlamına gelir."
+    },
+    {
+      "question": "İzci olmak için ne gerekir?",
+      "answer": "Doğayı sevmek, öğrenmeye açık olmak ve takım çalışmasına önem vermek gerekir."
+    },
+    {
+      "question": "Kodlama öğrenmek zor mu?",
+      "answer": "Başlangıçta biraz zor gibi görünse de, adım adım ve sabırla herkes öğrenebilir."
+    },
+    {
+      "question": "Eywallah nasıl kullanılır?",
+      "answer": "Eywallah, onay ya da teşekkür anlamında günlük konuşmada kullanılır."
+    },
+    {
+      "question": "Hafızlık nedir?",
+      "answer": "Kuran’ın tamamını ezberleme ve anlamaya çalışma sürecidir."
+    },
+    {
+      "question": "Youtube nasıl para kazanılır?",
+      "answer": "İzleyici kitlesi oluşturup, reklamlar ve sponsorlarla gelir elde edilir."
+    },
+    {
+      "question": "Ramazan nedir?",
+      "answer": "Ramazan, İslam’da oruç tutulan, ibadetlerin yoğunlaştığı mübarek aydır."
+    }
+  ]
+}
