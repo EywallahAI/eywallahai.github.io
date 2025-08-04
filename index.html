@@ -16,13 +16,11 @@
     --glass-border: rgba(255, 255, 255, 0.1);
     --shadow-glow: rgba(0, 255, 255, 0.4);
   }
-
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-
   body {
     font-family: 'Poppins', sans-serif;
     background: var(--background);
@@ -34,7 +32,6 @@
     text-align: center;
     min-height: 100vh;
   }
-
   h1 {
     font-size: 3.8em;
     font-weight: 700;
@@ -45,7 +42,6 @@
     text-shadow: 0 0 8px var(--shadow-glow);
     letter-spacing: 1.2px;
   }
-
   h1 .subtitle {
     font-size: 0.6em;
     font-weight: 400;
@@ -57,7 +53,6 @@
     -webkit-text-fill-color: var(--muted);
     background: none;
   }
-
   p {
     font-size: 1.3em;
     font-weight: 300;
@@ -67,7 +62,6 @@
     line-height: 1.5;
     user-select: none;
   }
-
   .features-container {
     width: 90%;
     max-width: 850px;
@@ -82,7 +76,6 @@
     animation: fadeIn 1s ease-in-out;
     user-select: text;
   }
-
   .features-container h2 {
     font-size: 2.1em;
     font-weight: 600;
@@ -93,7 +86,6 @@
     letter-spacing: 0.05em;
     text-shadow: 0 0 6px var(--shadow-glow);
   }
-
   .features-container ul {
     list-style: none;
     padding: 0;
@@ -102,21 +94,18 @@
     color: var(--muted);
     line-height: 1.5;
   }
-
   .features-container li {
     margin-bottom: 14px;
     display: flex;
     align-items: center;
     gap: 10px;
   }
-
   .features-container li strong {
     color: var(--primary);
     min-width: 120px;
     text-align: left;
     display: inline-block;
   }
-
   .chatbot-container {
     width: 90%;
     max-width: 850px;
@@ -134,7 +123,6 @@
     line-height: 1.4;
     user-select: text;
   }
-
   #input-form {
     display: flex;
     width: 90%;
@@ -144,7 +132,6 @@
     margin-bottom: 40px;
     box-shadow: 0 0 25px var(--shadow-glow);
   }
-
   #input {
     flex: 1;
     padding: 15px;
@@ -154,7 +141,6 @@
     background: rgba(255, 255, 255, 0.1);
     color: var(--text);
   }
-
   #send {
     padding: 0 25px;
     background: var(--primary);
@@ -164,11 +150,9 @@
     cursor: pointer;
     transition: background 0.3s ease;
   }
-
   #send:hover {
     background: var(--accent);
   }
-
   @keyframes fadeIn {
     from {opacity: 0; transform: translateY(30px);}
     to {opacity: 1; transform: translateY(0);}
@@ -210,6 +194,32 @@
     const input = document.getElementById('input');
     const messagesDiv = document.getElementById('messages');
 
+    let answersData = null;
+
+    // JSON dosyasını çek, yükle
+    async function loadAnswers() {
+      try {
+        const res = await fetch('https://raw.githubusercontent.com/EywallahAI/eywallahai.github.io/main/answers.json');
+        answersData = await res.json();
+        console.log('Answers JSON yüklendi.');
+      } catch (e) {
+        console.error('JSON yüklenirken hata:', e);
+      }
+    }
+
+    // Basit eşleştirme: sorudaki kelimeleri cevap anahtarları ile kontrol et
+    function findAnswer(question) {
+      if (!answersData) return null;
+      question = question.toLowerCase();
+
+      for (const key in answersData) {
+        if (question.includes(key.toLowerCase())) {
+          return answersData[key];
+        }
+      }
+      return null;
+    }
+
     function addMessage(text, sender = 'bot') {
       const p = document.createElement('p');
       p.textContent = text;
@@ -226,28 +236,6 @@
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
-    async function duckduckgoSearch(query) {
-      const url = `https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json&no_redirect=1&skip_disambig=1`;
-
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        const texts = [];
-        if (data.AbstractText) texts.push(data.AbstractText);
-        if (data.RelatedTopics && data.RelatedTopics.length > 0) {
-          for (let i = 0; i < Math.min(3, data.RelatedTopics.length); i++) {
-            if (data.RelatedTopics[i].Text) {
-              texts.push(data.RelatedTopics[i].Text);
-            }
-          }
-        }
-        return texts;
-      } catch {
-        return ['Üzgünüm, arama yaparken bir sorun oluştu.'];
-      }
-    }
-
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const question = input.value.trim();
@@ -257,13 +245,18 @@
       addMessage('Cevap aranıyor...', 'bot');
       input.value = '';
 
-      const results = await duckduckgoSearch(question);
+      if (!answersData) {
+        await loadAnswers();
+      }
 
-      // Basit özet: gelen tüm metinleri birleştirip gösteriyoruz.
-      const summary = results.join(' ');
-      // Sonucu bot mesajı olarak güncelle
-      messagesDiv.lastChild.textContent = summary || 'Üzgünüm, cevap bulamadım.';
+      const answer = findAnswer(question);
+
+      messagesDiv.lastChild.textContent = answer || 'Üzgünüm, bu soruya cevap bulamadım. Başka soru sorabilirsin!';
     });
+
+    // Sayfa açılır açılmaz JSON yükle (isteğe bağlı, hız için)
+    loadAnswers();
   </script>
+
 </body>
 </html>
