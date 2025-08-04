@@ -1,260 +1,194 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Eywallah AI | Orion 1</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --primary: #00ffff;
-    --accent: #00ff8c;
-    --background: #0a0a0a;
-    --card: rgba(255, 255, 255, 0.05);
-    --text: #e0e0e0;
-    --muted: #b0b0b0;
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --shadow-glow: rgba(0, 255, 255, 0.4);
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--background);
-    color: var(--text);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    text-align: center;
-    min-height: 100vh;
-  }
-  h1 {
-    font-size: 3.8em;
-    font-weight: 700;
-    background: linear-gradient(45deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 10px;
-    text-shadow: 0 0 8px var(--shadow-glow);
-    letter-spacing: 1.2px;
-  }
-  h1 .subtitle {
-    font-size: 0.6em;
-    font-weight: 400;
-    display: block;
-    color: var(--muted);
-    margin-top: -8px;
-    letter-spacing: normal;
-    text-shadow: none;
-    -webkit-text-fill-color: var(--muted);
-    background: none;
-  }
-  p {
-    font-size: 1.3em;
-    font-weight: 300;
-    margin-bottom: 30px;
-    color: var(--muted);
-    max-width: 650px;
-    line-height: 1.5;
-    user-select: none;
-  }
-  .features-container {
-    width: 90%;
-    max-width: 850px;
-    padding: 30px;
-    background-color: var(--card);
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
-    margin-bottom: 40px;
-    animation: fadeIn 1s ease-in-out;
-    user-select: text;
-  }
-  .features-container h2 {
-    font-size: 2.1em;
-    font-weight: 600;
-    margin-bottom: 15px;
-    background: linear-gradient(45deg, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 0.05em;
-    text-shadow: 0 0 6px var(--shadow-glow);
-  }
-  .features-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 1.15em;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-  .features-container li {
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .features-container li strong {
-    color: var(--primary);
-    min-width: 120px;
-    text-align: left;
-    display: inline-block;
-  }
-  .chatbot-container {
-    width: 90%;
-    max-width: 850px;
-    height: 700px;
-    border-radius: 20px;
-    overflow-y: auto;
-    background-color: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 30px var(--shadow-glow);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: 40px;
-    animation: fadeIn 1.2s ease-in-out;
-    padding: 20px;
-    text-align: left;
-    font-size: 1.1em;
-    line-height: 1.4;
-    user-select: text;
-  }
-  #input-form {
-    display: flex;
-    width: 90%;
-    max-width: 850px;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-bottom: 40px;
-    box-shadow: 0 0 25px var(--shadow-glow);
-  }
-  #input {
-    flex: 1;
-    padding: 15px;
-    font-size: 1.1em;
-    border: none;
-    outline: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--text);
-  }
-  #send {
-    padding: 0 25px;
-    background: var(--primary);
-    border: none;
-    color: #000;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  #send:hover {
-    background: var(--accent);
-  }
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(30px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eywallah AI | Orion 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #00ffff;
+      --accent: #00ff8c;
+      --background: #0a0a0a;
+      --text: #e0e0e0;
+      --muted: #b0b0b0;
+      --shadow-glow: rgba(0, 255, 255, 0.4);
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3.5em;
+      font-weight: 700;
+      background: linear-gradient(45deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+      text-shadow: 0 0 8px var(--shadow-glow);
+    }
+    #messages {
+      width: 90%;
+      max-width: 700px;
+      height: 480px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      overflow-y: auto;
+      text-align: left;
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+    form {
+      display: flex;
+      width: 90%;
+      max-width: 700px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 25px var(--shadow-glow);
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 15px;
+      font-size: 1.1em;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+    }
+    button {
+      padding: 0 25px;
+      background: var(--primary);
+      border: none;
+      color: #000;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: var(--accent);
+    }
+    p.user-msg {
+      color: var(--primary);
+      text-align: right;
+      font-weight: 600;
+      margin-bottom: 1em;
+    }
+    p.bot-msg {
+      color: var(--accent);
+      text-align: left;
+      margin-bottom: 1em;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Eywallah AI <span class="subtitle">| Orion 1</span></h1>
-  <p>Ben Eywallah AI. Yazım hataların olsa da moral bozukluğun olsa da ben her zaman buradayım. Eyvallah!</p>
+  <h1>Eywallah AI | Orion 1</h1>
 
-  <div class="features-container" role="region" aria-label="Eywallah AI Özellikleri">
-    <h2>Hızlı ve Kaliteli Motoruyla Eywallah AI.</h2>
-    <ul>
-      <li><strong>🚀 Eywallah AI:</strong> Ultra hızlı ve düşük gecikmeli sohbet deneyimi sunar.</li>
-      <li><strong>🔄 Gerçek Zamanlı Yanıtlar:</strong> Sorularına anlık, doğal ve insansı cevaplar verir.</li>
-      <li><strong>🧠 Gelişmiş Anlama:</strong> Karmaşık soruları, yazım hatalarını ve kısaltmaları doğru anlar.</li>
-      <li><strong>🧘 Empatik Konuşma:</strong> Moral verir, tavsiye sunar, yalnız hissedersen yanında olur.</li>
-      <li><strong>🌐 Geniş Bilgi Alanı:</strong> Wikipedia, tarih ve daha fazlasını bilir.</li>
-      <li><strong>🧬 Kişiselleştirme:</strong> Doğal yapısı eğlencelidir, bunu siz özelleştirebilirsiniz.</li>
-    </ul>
+  <div id="messages">
+    <p class="bot-msg">🤖 Merhaba! Eywallah AI seninle. Sorunu yaz, ben cevaplayayım.</p>
   </div>
 
-  <form id="input-form" aria-label="Mesaj gönderme formu">
-    <input id="input" type="text" placeholder="Sorunu yaz..." autocomplete="off" aria-label="Mesaj girişi" />
-    <button id="send" type="submit" aria-label="Gönder">Gönder</button>
+  <form id="input-form">
+    <input id="input" type="text" placeholder="Sorunu yaz..." autocomplete="off" />
+    <button type="submit">Gönder</button>
   </form>
-
-  <div class="chatbot-container" role="main" aria-label="Eywallah AI Sohbet Robotu" id="messages">
-    Buraya cevaplar gelecek...
-  </div>
-
-  <footer>
-    &copy; 2025 <strong>Eywallah AI | Orion 1</strong> | Kişisel Sohbet Botu. Tüm hakları saklıdır.
-  </footer>
 
   <script>
     const form = document.getElementById('input-form');
     const input = document.getElementById('input');
     const messagesDiv = document.getElementById('messages');
 
-    let answersData = null;
+    let answersData = [];
 
-    // JSON dosyasını çek, yükle
+    // Google Form URL - kendi form ID ve entry numaranı yaz!
+    const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLScima-8YR6pJqG_60TWPfr2oX39GJRYV7BIYoPLanN1JI0JoQ/formResponse";
+    const googleFormEntry = "entry.123456789"; // <-- Bunu Inspect ile formdan al!
+
+    // Bilinmeyen soruyu Google Form'a logla
+    function logUnknownQuestionToGoogleForms(question) {
+      const formData = new URLSearchParams();
+      formData.append(googleFormEntry, question);
+
+      fetch(googleFormURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      }).then(() => {
+        console.log("Soru loglandı.");
+      }).catch((err) => {
+        console.error("Google Form'a gönderme hatası:", err);
+      });
+    }
+
+    // answers.json dosyasını yükle
     async function loadAnswers() {
       try {
-        const res = await fetch('https://raw.githubusercontent.com/EywallahAI/eywallahai.github.io/main/answers.json');
-        answersData = await res.json();
-        console.log('Answers JSON yüklendi.');
+        const res = await fetch("answers.json");
+        const rawData = await res.json();
+        answersData = rawData;
+        console.log("Cevaplar yüklendi.");
       } catch (e) {
-        console.error('JSON yüklenirken hata:', e);
+        console.error("answers.json yüklenemedi:", e);
       }
     }
 
-    // Basit eşleştirme: sorudaki kelimeleri cevap anahtarları ile kontrol et
     function findAnswer(question) {
-      if (!answersData) return null;
-      question = question.toLowerCase();
-
-      for (const key in answersData) {
-        if (question.includes(key.toLowerCase())) {
-          return answersData[key];
+      const q = question.toLowerCase();
+      for (const entry of answersData) {
+        for (const keyword of entry.anahtarlar) {
+          if (q.includes(keyword.toLowerCase())) {
+            const cevaplar = entry.cevaplar;
+            return cevaplar[Math.floor(Math.random() * cevaplar.length)];
+          }
         }
       }
       return null;
     }
 
-    function addMessage(text, sender = 'bot') {
-      const p = document.createElement('p');
-      p.textContent = text;
-      p.style.marginBottom = '1em';
-      if (sender === 'user') {
-        p.style.color = '#00ffff';
-        p.style.textAlign = 'right';
-        p.style.fontWeight = '600';
+    function addMessage(text, sender = "bot", isHTML = false) {
+      const p = document.createElement("p");
+      p.className = sender === "user" ? "user-msg" : "bot-msg";
+      if (isHTML) {
+        p.innerHTML = text;
       } else {
-        p.style.color = '#00ff8c';
-        p.style.textAlign = 'left';
+        p.textContent = text;
       }
       messagesDiv.appendChild(p);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const question = input.value.trim();
       if (!question) return;
 
-      addMessage(question, 'user');
-      addMessage('Cevap aranıyor...', 'bot');
-      input.value = '';
+      addMessage(question, "user");
+      input.value = "";
+      addMessage("Cevap aranıyor...", "bot");
 
-      if (!answersData) {
-        await loadAnswers();
-      }
-
+      if (answersData.length === 0) await loadAnswers();
       const answer = findAnswer(question);
 
-      messagesDiv.lastChild.textContent = answer || 'Üzgünüm, bu soruya cevap bulamadım. Başka soru sorabilirsin!';
+      messagesDiv.lastChild.remove();
+
+      if (answer) {
+        addMessage("🤖 " + answer, "bot");
+      } else {
+        addMessage(`🤖 Bu soruya şu an cevap veremiyorum.<br>
+        <small>🕐 <strong>Sadece 1 dakikanı ayırarak</strong> cevaplanmamış soruyu <a href="https://docs.google.com/forms/d/e/1FAIpQLScima-8YR6pJqG_60TWPfr2oX39GJRYV7BIYoPLanN1JI0JoQ/viewform" target="_blank" style="color:#00ffff;">bize bildirebilirsin</a>.</small>`, "bot", true);
+        logUnknownQuestionToGoogleForms(question);
+      }
     });
 
-    // Sayfa açılır açılmaz JSON yükle (isteğe bağlı, hız için)
     loadAnswers();
   </script>
 
