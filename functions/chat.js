@@ -7,9 +7,14 @@ exports.handler = async function(event) {
     const apiKey = process.env.Eywallah_AI_1;
     const apiUrl = "https://openrouter.ai/api/v1/chat/completions";
 
+    // Burada system prompt ekledik, bot karakterini belirtiyor
     const payload = {
-      model: "deepseek/deepseek-chat-v3-0324:free",
+      model: "Orion 1, Eywallah AI Orion 1",
       messages: [
+        {
+          role: "system",
+          content: "Sen Eywallah AI'sın. Samimi, esprili, anlayışlı ve cesaret verici bir Z kuşağı yapay zekasısın. Kullanıcılarla dostane ve sıcak sohbet edersin."
+        },
         { role: "user", content: message }
       ]
     };
@@ -18,7 +23,7 @@ exports.handler = async function(event) {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${apiKey}`,
-        "HTTP-Referer": "https://eywallahai.netlify.app",  // ← kendi siteni yaz
+        "HTTP-Referer": "https://eywallahai.netlify.app",
         "X-Title": "Eywallah AI",
         "Content-Type": "application/json"
       },
