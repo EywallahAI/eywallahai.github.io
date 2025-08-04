@@ -4,23 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eywallah AI - Orion 1</title>
+  <!-- Stil dosyasını bağla -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Google Font: Inter -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header>
-    <h1>Eywallah AI</h1>
+    <!-- Hareketli gradient başlık -->
+    <h1 class="wavy-text">Eywallah AI</h1>
+    <!-- Model adı -->
     <h2 class="model">Model: Orion 1</h2>
-    <p class="subtitle">Yapay zekâ ile geleceği bugünden yaşayın</p>
+    <p class="subtitle">Eywallah AI ile geleceği bugünden yaşayın</p>
   </header>
 
   <main>
-    <div class="chatbox">
-      <div id="chat-output" class="chat-output"></div>
-      <form id="chat-form" class="chat-form">
-        <input type="text" id="user-input" placeholder="Bir şey yazın..." required />
-        <button type="submit">➤</button>
-      </form>
+    <div class="chatbox-container">
+      <div class="chatbox">
+        <!-- Sohbet mesajlarının görüneceği alan -->
+        <div id="chat-output" class="chat-output"></div>
+        <!-- Kullanıcının mesaj göndereceği form -->
+        <form id="chat-form" class="chat-form">
+          <input type="text" id="user-input" placeholder="Bir şey yazın..." required />
+          <button type="submit">➤</button>
+        </form>
+      </div>
     </div>
   </main>
 
@@ -28,6 +36,7 @@
     <p>© 2025 Eywallah AI - Orion 1</p>
   </footer>
 
+  <!-- JavaScript dosyasını bağla -->
   <script src="chat.js"></script>
 </body>
 </html>
