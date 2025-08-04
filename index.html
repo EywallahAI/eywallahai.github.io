@@ -2,195 +2,32 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eywallah AI | Orion 1</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --primary: #00ffff;
-      --accent: #00ff8c;
-      --background: #0a0a0a;
-      --text: #e0e0e0;
-      --muted: #b0b0b0;
-      --shadow-glow: rgba(0, 255, 255, 0.4);
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--background);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      min-height: 100vh;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3.5em;
-      font-weight: 700;
-      background: linear-gradient(45deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 15px;
-      text-shadow: 0 0 8px var(--shadow-glow);
-    }
-    #messages {
-      width: 90%;
-      max-width: 700px;
-      height: 480px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 20px;
-      overflow-y: auto;
-      text-align: left;
-      font-size: 1.1em;
-      line-height: 1.5;
-    }
-    form {
-      display: flex;
-      width: 90%;
-      max-width: 700px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 25px var(--shadow-glow);
-    }
-    input[type="text"] {
-      flex: 1;
-      padding: 15px;
-      font-size: 1.1em;
-      border: none;
-      outline: none;
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text);
-    }
-    button {
-      padding: 0 25px;
-      background: var(--primary);
-      border: none;
-      color: #000;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: var(--accent);
-    }
-    p.user-msg {
-      color: var(--primary);
-      text-align: right;
-      font-weight: 600;
-      margin-bottom: 1em;
-    }
-    p.bot-msg {
-      color: var(--accent);
-      text-align: left;
-      margin-bottom: 1em;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eywallah AI - Orion 1</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <header>
+    <h1>Eywallah AI</h1>
+    <h2 class="model">Model: Orion 1</h2>
+    <p class="subtitle">Yapay zekâ ile geleceği bugünden yaşayın</p>
+  </header>
 
-  <h1>Eywallah AI | Orion 1</h1>
+  <main>
+    <div class="chatbox">
+      <div id="chat-output" class="chat-output"></div>
+      <form id="chat-form" class="chat-form">
+        <input type="text" id="user-input" placeholder="Bir şey yazın..." required />
+        <button type="submit">➤</button>
+      </form>
+    </div>
+  </main>
 
-  <div id="messages">
-    <p class="bot-msg">🤖 Merhaba! Eywallah AI seninle. Sorunu yaz, ben cevaplayayım.</p>
-  </div>
+  <footer>
+    <p>© 2025 Eywallah AI - Orion 1</p>
+  </footer>
 
-  <form id="input-form">
-    <input id="input" type="text" placeholder="Sorunu yaz..." autocomplete="off" />
-    <button type="submit">Gönder</button>
-  </form>
-
-  <script>
-    const form = document.getElementById('input-form');
-    const input = document.getElementById('input');
-    const messagesDiv = document.getElementById('messages');
-
-    let answersData = [];
-
-    // Google Form URL - kendi form ID ve entry numaranı yaz!
-    const googleFormURL = "https://docs.google.com/forms/d/e/1FAIpQLScima-8YR6pJqG_60TWPfr2oX39GJRYV7BIYoPLanN1JI0JoQ/formResponse";
-    const googleFormEntry = "entry.123456789"; // <-- Bunu Inspect ile formdan al!
-
-    // Bilinmeyen soruyu Google Form'a logla
-    function logUnknownQuestionToGoogleForms(question) {
-      const formData = new URLSearchParams();
-      formData.append(googleFormEntry, question);
-
-      fetch(googleFormURL, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-      }).then(() => {
-        console.log("Soru loglandı.");
-      }).catch((err) => {
-        console.error("Google Form'a gönderme hatası:", err);
-      });
-    }
-
-    // answers.json dosyasını yükle
-    async function loadAnswers() {
-      try {
-        const res = await fetch("answers.json");
-        const rawData = await res.json();
-        answersData = rawData;
-        console.log("Cevaplar yüklendi.");
-      } catch (e) {
-        console.error("answers.json yüklenemedi:", e);
-      }
-    }
-
-    function findAnswer(question) {
-      const q = question.toLowerCase();
-      for (const entry of answersData) {
-        for (const keyword of entry.anahtarlar) {
-          if (q.includes(keyword.toLowerCase())) {
-            const cevaplar = entry.cevaplar;
-            return cevaplar[Math.floor(Math.random() * cevaplar.length)];
-          }
-        }
-      }
-      return null;
-    }
-
-    function addMessage(text, sender = "bot", isHTML = false) {
-      const p = document.createElement("p");
-      p.className = sender === "user" ? "user-msg" : "bot-msg";
-      if (isHTML) {
-        p.innerHTML = text;
-      } else {
-        p.textContent = text;
-      }
-      messagesDiv.appendChild(p);
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const question = input.value.trim();
-      if (!question) return;
-
-      addMessage(question, "user");
-      input.value = "";
-      addMessage("Cevap aranıyor...", "bot");
-
-      if (answersData.length === 0) await loadAnswers();
-      const answer = findAnswer(question);
-
-      messagesDiv.lastChild.remove();
-
-      if (answer) {
-        addMessage("🤖 " + answer, "bot");
-      } else {
-        addMessage(`🤖 Bu soruya şu an cevap veremiyorum.<br>
-        <small>🕐 <strong>Sadece 1 dakikanı ayırarak</strong> cevaplanmamış soruyu <a href="https://docs.google.com/forms/d/e/1FAIpQLScima-8YR6pJqG_60TWPfr2oX39GJRYV7BIYoPLanN1JI0JoQ/viewform" target="_blank" style="color:#00ffff;">bize bildirebilirsin</a>.</small>`, "bot", true);
-        logUnknownQuestionToGoogleForms(question);
-      }
-    });
-
-    loadAnswers();
-  </script>
-
+  <script src="chat.js"></script>
 </body>
 </html>
