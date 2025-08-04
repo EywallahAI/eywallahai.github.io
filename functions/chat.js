@@ -1,35 +1,55 @@
+// functions/chat.js
+
 const fetch = require("node-fetch");
 
 exports.handler = async function(event) {
   try {
+    // Kullanıcıdan gelen mesajı al
     const { message } = JSON.parse(event.body);
 
-    const apiKey = process.env.Eywallah_AI_1; // ✅ senin tanımladığın environment key
+    // Netlify ortam değişkeninden API key'i çek
+    const apiKey = process.env.Eywallah_AI_1;
 
-    const apiUrl = "https://your-api-endpoint.com"; // 🔁 ← bunu senin API endpoint’inle değiştir
+    // OpenRouter chat completions endpoint'i
+    const apiUrl = "https://openrouter.ai/api/v1/chat/completions";
 
+    // OpenRouter Deepseek modeli için payload
+    const payload = {
+      model: "deepseek-001",
+      messages: [
+        { role: "user", content: message }
+      ]
+    };
+
+    // API'ye POST isteği at
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}` // 🔐 Key burada kullanılıyor
+        "Authorization": `Bearer ${apiKey}`
       },
-      body: JSON.stringify({ message })
+      body: JSON.stringify(payload)
     });
 
-    const result = await response.json();
+    // JSON yanıtı al
+    const data = await response.json();
 
+    // Yanıt içinden cevabı al, yoksa hata mesajı göster
+    const reply = data.choices?.[0]?.message?.content || "Yanıt alınamadı.";
+
+    // Başarılı dönüş
     return {
       statusCode: 200,
-      body: JSON.stringify({ reply: result.reply || "Boş yanıt geldi" })
+      body: JSON.stringify({ reply })
     };
 
-  } catch (err) {
-    console.error("API hata:", err);
+  } catch (error) {
+    console.error("API hata:", error);
+    // Hata durumunda dönüş
     return {
       statusCode: 500,
       body: JSON.stringify({ reply: "Sunucu hatası oldu 😢" })
     };
   }
 };
-
+    
