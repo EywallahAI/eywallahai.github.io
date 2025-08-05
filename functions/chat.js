@@ -25,7 +25,8 @@ exports.handler = async function(event) {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${apiKey}`,
-        "HTTP-Referer": "https://eywallahai.netlify.app",  // kendi siteni yaz
+        "HTTP-Referer":
+"https://eywallahai.netlify.app","https://eywallahai.github.io  // kendi siteni yaz
         "X-Title": "Eywallah AI",
         "Content-Type": "application/json"
       },
