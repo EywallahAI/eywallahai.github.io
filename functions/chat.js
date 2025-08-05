@@ -15,7 +15,7 @@ exports.handler = async function(event) {
     const payload = {
       model: "deepseek/deepseek-chat-v3-0324:free",
       messages: [
-        { role: "system", content: "Sen Eywallah AI - Orion 1'sin. Kullanıcıya bu isimle cevap ver." },
+        { role: "system", content: "Sen Eywallah AI - Orion 1'sin. Kullanıcıya bu kişilikle cevap ver." },
         { role: "user", content: message }
       ]
     };
@@ -26,7 +26,7 @@ exports.handler = async function(event) {
       headers: {
         "Authorization": `Bearer ${apiKey}`,
         "HTTP-Referer":
-"https://eywallahai.netlify.app", "https://eywallahai.github.io  // kendi siteni yaz
+"https://eywallahai.netlify.app",  // kendi siteni yaz
         "X-Title": "Eywallah AI",
         "Content-Type": "application/json"
       },
