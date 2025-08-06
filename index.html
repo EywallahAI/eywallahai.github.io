@@ -3,62 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Eywallah AI Orion 1 ile yapay zeka destekli sohbet deneyimi yaşayın.">
-  <title>Eywallah AI - Orion 1 | Akıllı Asistan</title>
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/eywallah_ai_logo.png" />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Google Font: Inter -->
+  <title>Eywallah AI - Orion 1</title>
+  <link rel="icon" type="image/png" href="eywallah_ai_logo.png" />
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
-
 <body>
-  <div class="background-container" aria-hidden="true"></div>
-
-  <header role="banner">
+  <div class="background-container"></div>
+  <header>
     <h1 class="main-title animated-title">Eywallah AI</h1>
     <h2 class="model-name">Orion 1</h2>
     <p class="subtitle">Eywallah AI ile geleceği bugünden yaşayın.</p>
     <div class="header-features">
-      <div class="feature-card" role="article">
+      <div class="feature-card">
         <h3>Hız</h3>
         <p>Anında cevaplar</p>
       </div>
-      <div class="feature-card" role="article">
+      <div class="feature-card">
         <h3>Doğruluk</h3>
         <p>Gelişmiş algoritmalar</p>
       </div>
-      <div class="feature-card" role="article">
+      <div class="feature-card">
         <h3>Esneklik</h3>
         <p>Her türlü görev için</p>
       </div>
     </div>
   </header>
 
-  <main role="main">
+  <main>
     <div class="chatbox-container">
-      <div id="chat-output" class="chat-output" role="log">
-        <!-- Sohbet geçmişi buraya eklenecek -->
-      </div>
-      <form id="chat-form" class="chat-form" role="form">
-        <input type="text" id="user-input" placeholder="Bir şey yazın..." required autocomplete="off" aria-label="Mesaj girişi" />
-        <button type="submit" aria-label="Gönder">➤</button>
+      <div id="chat-output" class="chat-output"></div>
+      <form id="chat-form" class="chat-form">
+        <textarea id="user-input" placeholder="Bir şey yazın..." rows="1" required></textarea>
+        <button type="submit">➤</button>
       </form>
     </div>
   </main>
 
-  <footer role="contentinfo">
-    <p>© 2025 Eywallah AI - Orion 1 | Tüm hakları saklıdır.</p>
+  <footer>
+    <p>© 2025 Eywallah AI - Orion 1. Tüm hakları saklıdır.</p>
   </footer>
 
-  <!-- Showdown.js -->
-  <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
-
-  <!-- JavaScript -->
-  <script src="js/chat.js"></script>
+  <script src="chat.js"></script>
 </body>
 </html>
